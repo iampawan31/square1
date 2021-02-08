@@ -21,17 +21,18 @@ const store = new Vuex.Store(storeData);
 const router = new VueRouter({
     mode: "history",
     routes: routes,
+    linkExactActiveClass: "is-active" // active class for *exact* links.
 });
 
 router.beforeEach((to, from, next) => {
     console.log(localStorage.getItem("isLoggedIn"));
-    if (to.matched.some((record) => record.meta.requiresAuth)) {
+    if (to.matched.some(record => record.meta.requiresAuth)) {
         if (localStorage.getItem("isLoggedIn") === "false") {
             next("/login");
         } else {
             next();
         }
-    } else if (to.matched.some((record) => record.meta.requiresGuest)) {
+    } else if (to.matched.some(record => record.meta.requiresGuest)) {
         if (localStorage.getItem("isLoggedIn") === "true") {
             next("/");
         } else {
@@ -49,5 +50,5 @@ const app = new Vue({
         this.$store.dispatch("loadUser");
     },
     store,
-    render: (h) => h(App),
+    render: h => h(App)
 });

@@ -29,15 +29,15 @@ export default {
     },
     actions: {
         async loadUser({ commit, dispatch }) {
-            if (isLoggedIn) {
-                try {
-                    await axios.get("/api/v1/user").then(res => {
-                        commit("SET_USER", res.data);
-                        commit("SET_LOGGED_IN", true);
-                    });
-                } catch (error) {
-                    console.log(error);
-                }
+            try {
+                await axios.get("/sanctum/csrf-cookie");
+                await axios.get("/api/v1/user").then(res => {
+                    commit("SET_USER", res.data);
+                    commit("SET_LOGGED_IN", true);
+                });
+            } catch (error) {
+                commit("SET_LOGGED_IN", false);
+                console.log(error);
             }
         },
         setUserPosts({ commit }, posts) {

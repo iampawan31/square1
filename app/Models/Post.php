@@ -10,6 +10,40 @@ class Post extends Model
 {
     use HasFactory;
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'title',
+        'description',
+        'user_id',
+        'publication_date',
+        'status'
+    ];
+
+    /**
+     * The attributes that should be cast to native types.
+     *
+     * @var array
+     */
+    protected $casts = [
+        'publication_date' => 'datetime',
+    ];
+
+    /**
+     * appends
+     *
+     * @var array
+     */
+    protected $appends = ['published_on'];
+
+    /**
+     * boot
+     *
+     * @return void
+     */
     public static function boot()
     {
         parent::boot();
@@ -27,6 +61,16 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo(User::class);
+    }
+
+    /**
+     * getPublishedOnAttribute
+     *
+     * @return void
+     */
+    public function getPublishedOnAttribute()
+    {
+        return $this->publication_date->diffForHumans();
     }
 
     /**

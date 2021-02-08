@@ -27,9 +27,9 @@ export default {
   },
   async mounted() {
     await this.axios
-      .get("/api/v1/users/posts")
+      .get("/api/v1/posts/user")
       .then((res) => {
-        this.$store.dispatch("setUserPosts", res.data.posts);
+        this.$store.dispatch("setUserPosts", res.data);
       })
       .catch((err) => {});
   },

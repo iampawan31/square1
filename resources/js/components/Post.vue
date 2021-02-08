@@ -5,8 +5,14 @@
         <div class="card-content">
           <div class="content">
             <a :href="post.slug"
-              ><h5 class="card-title">{{ post.title }}</h5></a
+              ><h5 class="card-title">
+                {{ post.title }}
+              </h5></a
             >
+            <span class="tag is-warning mb-3">
+              Published {{ post.published_on }}
+            </span>
+            <br />
             {{ post.description }}
           </div>
         </div>

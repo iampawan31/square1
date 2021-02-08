@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\AuthController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PagesController;
 
@@ -15,8 +15,8 @@ use App\Http\Controllers\PagesController;
 |
 */
 
-Route::post('/login', [AuthController::class, 'login']);
+Route::post('/login', [LoginController::class, 'login'])->name('login');
 
-Route::get('/logout', [AuthController::class, 'logout']);
+Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
 
 Route::get('/{any?}', PagesController::class)->where('any', '.*');

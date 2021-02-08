@@ -16,7 +16,7 @@ class LoginTest extends TestCase
         $this->withoutExceptionHandling();
         $user = User::factory()->create();
 
-        $this->postJson(route('api.v1.auth.login'), [
+        $this->postJson(route('login'), [
             'email' => $user->email,
             'password' => 'password',
         ])->assertStatus(200);
@@ -28,7 +28,7 @@ class LoginTest extends TestCase
     {
         $user = User::factory()->create();
 
-        $this->postJson(route('api.v1.auth.login'), [
+        $this->postJson(route('login'), [
             'email' => $user->email,
             'password' => 'wrong-password',
         ])->assertStatus(422);

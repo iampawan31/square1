@@ -27,7 +27,7 @@ class PostFactory extends Factory
             'title' => $this->faker->sentence,
             'user_id' => User::factory()->create()->id,
             'description' => $this->faker->sentence(50),
-            'publication_date' => Carbon::now()->subDays(rand(2, 30)),
+            'publication_date' => Carbon::now()->subDays(rand(2, 50)),
             'status' => 1,
 
         ];

@@ -2,6 +2,7 @@ import Home from "./components/Home.vue";
 import Login from "./components/Login.vue";
 import Register from "./components/Register.vue";
 import Dashboard from "./components/Dashboard.vue";
+import CreatePost from "./components/CreatePost.vue";
 
 export const routes = [
     {
@@ -29,6 +30,14 @@ export const routes = [
         name: "dashboard",
         path: "/dashboard",
         component: Dashboard,
+        meta: {
+            requiresAuth: true
+        }
+    },
+    {
+        name: "create-post",
+        path: "/dashboard/create",
+        component: CreatePost,
         meta: {
             requiresAuth: true
         }

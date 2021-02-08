@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar is-warning" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
-      <a class="navbar-item" href="/">Blog</a>
+      <a class="navbar-item is-tab" href="/">Blog</a>
 
       <a
         role="button"
@@ -18,8 +18,12 @@
 
     <div id="navbarBasicExample" class="navbar-menu">
       <div v-if="isLoggedIn" class="navbar-end">
-        <a href="/posts/create" class="navbar-item"> Create Post </a>
-        <a href="/dashboard" class="navbar-item"> Dashboard </a>
+        <router-link to="/dashboard/create" class="navbar-item is-tab">
+          Create Post
+        </router-link>
+        <router-link to="/dashboard" class="navbar-item is-tab">
+          Dashboard
+        </router-link>
         <div class="navbar-item">
           <a @click="logout" class="button is-black">Logout</a>
         </div>
