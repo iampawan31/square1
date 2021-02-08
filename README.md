@@ -25,6 +25,7 @@ Our customer is a very popular blogger, who generates between 2 and 3 posts an h
 4. Run ````php artisan db:seed```` for seeding dummy data.
 5. Run ````npm install```` to install NPM Dependencies.
 6. Both frontend and backend should be on the same domain as Laravel Sanctum is used for SPA Authentication.
+7. For Test Auto Import Posts from ([https://sq1-api-test.herokuapp.com/posts](https://sq1-api-test.herokuapp.com/posts)), please run ````php artisan schedule:work```` on your terminal in root directory.
 
 ## Tests
 - Run ````phpunit```` for executing Feature/Unit Tests.
