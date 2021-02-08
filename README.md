@@ -17,7 +17,7 @@ Our customer is a very popular blogger, who generates between 2 and 3 posts an h
 - Vuejs - Vuex, Router
 - Bulma CSS
 
-##Setup
+## Setup
 
 1. Clone the repository to your local machine using ````git clone https://github.com/iampawan31/square1.git.````
 2. Run ````composer install```` in home directory.
